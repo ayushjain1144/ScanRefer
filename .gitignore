@@ -4,7 +4,9 @@ data/glove*
 data/scannet/scannet_data
 data/scannet/scans
 data/scannetv2_enet.pth
-
+data/frames_square
+data/.ipynb*
+data/scannet/*
 # cache
 data/scannet/__pycache__
 lib/__pycache__
