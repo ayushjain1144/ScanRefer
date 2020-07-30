@@ -1,5 +1,5 @@
 import torch
-import hyperparams as hyp
+# import hyperparams as hyp
 import numpy as np
 import utils_geom
 import utils_samp
@@ -218,14 +218,16 @@ def get_mem_T_ref(B, Z, Y, X, bounds='default'):
     # for interpretability, let's construct this in two steps...
     
     # translation
-    center_T_ref = utils_geom.eye_4x4(B)
-    center_T_ref[:,0,3] = -hyp.XMIN
-    center_T_ref[:,1,3] = -hyp.YMIN
-    center_T_ref[:,2,3] = -hyp.ZMIN
 
-    VOX_SIZE_X = (hyp.XMAX-hyp.XMIN)/float(X)
-    VOX_SIZE_Y = (hyp.YMAX-hyp.YMIN)/float(Y)
-    VOX_SIZE_Z = (hyp.ZMAX-hyp.ZMIN)/float(Z)
+    print("You commented hyp!!")
+    center_T_ref = utils_geom.eye_4x4(B)
+    # center_T_ref[:,0,3] = -hyp.XMIN
+    # center_T_ref[:,1,3] = -hyp.YMIN
+    # center_T_ref[:,2,3] = -hyp.ZMIN
+
+    # VOX_SIZE_X = (hyp.XMAX-hyp.XMIN)/float(X)
+    # VOX_SIZE_Y = (hyp.YMAX-hyp.YMIN)/float(Y)
+    # VOX_SIZE_Z = (hyp.ZMAX-hyp.ZMIN)/float(Z)
         
     # scaling
     mem_T_center = utils_geom.eye_4x4(B)
@@ -294,9 +296,10 @@ def apply_pixX_T_memR_to_voxR(pix_T_camX, camX_T_camR, voxR, D, H, W):
     # H, W, D indicates how big to make the output 
     # returns B x C x D x H x W
     
+    print("You commented hyp!!")
     B, C, Z, Y, X = list(voxR.shape)
-    z_near = hyp.ZMIN
-    z_far = hyp.ZMAX
+    # z_near = hyp.ZMIN
+    # z_far = hyp.ZMAX
 
     grid_z = torch.linspace(z_near, z_far, steps=D, dtype=torch.float32, device=torch.device('cuda'))
     # grid_z = torch.exp(torch.linspace(np.log(z_near), np.log(z_far), steps=D, dtype=torch.float32, device=torch.device('cuda')))

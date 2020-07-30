@@ -681,7 +681,8 @@ def get_iou_from_corresponded_lrtlists(lrtlist_a, lrtlist_b):
     B, N, D = list(lrtlist_a.shape)
     assert(D==19)
     B2, N2, D2 = list(lrtlist_b.shape)
-    assert(B2==B, N2==N)
+    assert(B2==B)
+    assert(N2==N)
     
     xyzlist_a = get_xyzlist_from_lrtlist(lrtlist_a)
     xyzlist_b = get_xyzlist_from_lrtlist(lrtlist_b)

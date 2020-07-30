@@ -10,7 +10,7 @@ import utils_basic
 import utils_samp
 import imageio
 import cv2
-import hyperparams as hyp
+# import hyperparams as hyp
 
 def add_loss(name, total_loss, loss, coeff, summ_writer):
     # summ_writer should be Summ_writer object in utils_improc
@@ -765,11 +765,12 @@ def get_boxes_from_flow_mag(flow_mag, N):
 
                         # i want to clip at the index where YMAX dips under the ground
                         # and where YMIN reaches above some reasonable height
-
-                        shift = hyp.YMIN
-                        scale = float(Y)/np.abs(float(hyp.YMAX-hyp.YMIN))
-                        ymin_ = (hyp.FLOOR-shift)*scale
-                        ymax_ = (hyp.CEIL-shift)*scale
+                        
+                        print("You have commented hyp so it woulf become buggy")
+                        # shift = hyp.YMIN
+                        # scale = float(Y)/np.abs(float(hyp.YMAX-hyp.YMIN))
+                        # ymin_ = (hyp.FLOOR-shift)*scale
+                        # ymax_ = (hyp.CEIL-shift)*scale
 
                         if ymin_ > ymax_:
                             # this is true if y points downards

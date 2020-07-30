@@ -5,7 +5,7 @@ import cv2
 import os
 import numpy as np
 from matplotlib import cm
-import hyperparams as hyp
+# import hyperparams as hyp
 import utils_geom
 import utils_vox
 import utils_py
@@ -425,14 +425,14 @@ class Summ_writer(object):
         self.maxwidth = MAXWIDTH
         self.just_gif = just_gif
 
-        if set_name == "train":
-            self.log_freq = hyp.log_freq_train
-        if set_name == "val":
-            self.log_freq = hyp.log_freq_val
-        if set_name == "test":
-            self.log_freq = hyp.log_freq_test
+        # if set_name == "train":
+        #     self.log_freq = hyp.log_freq_train
+        # if set_name == "val":
+        #     self.log_freq = hyp.log_freq_val
+        # if set_name == "test":
+        #     self.log_freq = hyp.log_freq_test
 
-        self.save_this = (self.global_step % self.log_freq == 0)
+        # self.save_this = (self.global_step % self.log_freq == 0)
         
 
     def summ_gif(self, name, tensor, blacken_zeros=False):
